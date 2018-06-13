@@ -1,0 +1,244 @@
+/*
+ * =========================================================
+ * @ filename : mod.scss
+ * @ explains : 通用模块结构样式
+ *
+ * @ email    : f2engineer@outlook.com
+ * @ author   : Pom
+ * ==========================================================
+ */
+
+$imgPath: "/static/images/common";
+// 页头
+.ui-header{
+    width: 100%;
+    position: relative;
+    z-index: 100;
+    //.ui-subNav{
+    //    @include remCalc("padding", 0, 0, 0, 24px);
+    //    position: absolute;
+    //    top: pxTorem(90px);
+    //    left: 0;
+    //    width: 100%;
+    //    @include box-sizing(border-box);
+    //    z-index: 100;
+    //    background-color: #ededed;
+    //    display: none;
+    //    li{
+    //        border-bottom: 1px solid #ddd;
+    //        &:last-child{
+    //            border: 0 none;
+    //        }
+    //    }
+    //    a{
+    //        @include remCalc("padding", 30px, 0);
+    //        font-size: pxTorem(28px);
+    //        color: #666;
+    //        display: block;
+    //    }
+    //}
+    .ui-bar{
+        @include remCalc("padding", 0, 30px);
+        background-color: #359df5;
+        height: pxTorem(90px);
+        line-height: pxTorem(90px);
+        overflow: hidden;
+        color: #fff;
+        @include display-flexbox;
+        @include justify-space-between;
+        .catalog{
+            a{
+                color: #fff;
+                text-decoration: none;
+                &:before{
+                    font-size: pxTorem(36px);
+                    font-weight: bold;
+                    @extend .m-fonts;
+                    @extend .font-catalog;
+                }
+            }
+        }
+        .back{
+            a{
+                color: #fff;
+                text-decoration: none;
+                display: block;
+                width: pxTorem(60px);
+                &:before{
+                    font-size: pxTorem(36px);
+                    font-weight: bold;
+                    @extend .m-fonts;
+                    @extend .font-back;
+                }
+            }
+        }
+        .logo{
+            &:before{
+                font-size: pxTorem(150px);
+                position: relative;
+                top: pxTorem(-30px);
+                @extend .m-fonts;
+                @extend .font-logo;
+                
+            }
+        }
+        .bar-title{
+            font-size: pxTorem(34px);
+        }
+        .placeholder{
+            width: pxTorem(20px);
+        }
+        .login{
+            a{
+                color: #fff;
+                font-size: pxTorem(28px);
+            }
+        }
+        .home{
+            a{
+                width: pxTorem(60px);
+                height: pxTorem(60px);
+                display: block;
+                text-align: right;
+                &:before{
+                    @extend .m-fonts;
+                    @extend .font-home;
+                    font-size: pxTorem(32px);
+                    font-weight: bold !important;
+                    position: relative;
+                    top: pxTorem(-2px);
+                }
+            }
+        }
+        .download{
+            a{
+                color: #fff;
+                font-size: pxTorem(26px);
+                display: block;
+                &:after{
+                    @extend .m-fonts;
+                    @extend .font-download;
+                    font-size: pxTorem(30px);
+                    font-weight: bold !important;
+                    padding-left: pxTorem(10px);
+                    position: relative;
+                    top: pxTorem(-4px);
+                }
+            }
+        }
+    }
+}
+
+
+
+
+// 注册btn
+.ui-register-box{
+    text-align: center;
+    margin-top: pxTorem(50px);
+    a{
+        display: inline-block;
+        width: pxTorem(245px);
+        height: pxTorem(66px);
+        line-height: pxTorem(66px);
+        border-radius: 5px;
+        font-size: pxTorem(30px);
+        // @include box-shadow(#e6e6e6 0px 3px 2px);
+    }
+    .register-btn{
+        color: #222;
+        background-color: #fff;
+        border: pxTorem(2px) solid #c1c1c1;
+    }
+    .download-btn{
+        color: #fff;
+        margin-left: pxTorem(30px);
+        background-color: #359df6;
+        border: pxTorem(2px) solid #359df6;
+        &.disabled{
+            background-color: #ccc;
+            border-color: #ccc;
+            cursor: not-allowed;
+        }
+    }
+}
+
+//ui-footer
+.ui-footer{
+    width: 100%;
+    @include remCalc("padding", 50px, 0, 50px);
+    text-align: center;
+    .services{
+        color: #9a9a9a;
+        font-size: pxTorem(30px);
+        @include remCalc('padding', 0px, 30px, 50px);
+
+        a{
+            color: #359df5;
+            display: inline;
+            @include remCalc('padding', 0px, 4px);
+        }
+    }
+    .company{
+        font-size: pxTorem(24px);
+        color: #6c6c6c;
+    }
+    .copyright{
+        font-size: pxTorem(18px);
+        color: #9a9a9a;
+        padding-top: pxTorem(20px) ;
+    }
+}
+
+// 体验金跟随滚动层
+.ui-coupon-fixed{
+    position: fixed;
+    // position: -webkit-sticky;
+    // position: sticky;
+    bottom: 0;
+    background-color: #fff;
+    width: 100%;
+    mix-width: pxTorem(320px);
+    max-width: pxTorem(750px);
+    @include box-sizing(border-box);
+    @include remCalc("padding", 20px, 0, 20px, 15px);
+    border-top: 1px solid #dfdfdf;
+    .coupon-inner{
+        position: relative;
+        z-index: 50;
+    }
+    img, p, a, span{
+        display: inline-block;
+        vertical-align: middle;
+    }
+    img{
+        width: pxTorem(80px);
+        height: pxTorem(80px);
+    }
+    p{
+        font-size: pxTorem(24px);
+        color: #222;
+    }
+    a{
+        background-color: #359df4;
+        width: pxTorem(128px);
+        height: pxTorem(50px);
+        font-size: pxTorem(24px);
+        color: #fff;
+        @include border-radius;
+        text-align: center;
+        line-height: pxTorem(50px);
+    }
+    .close-fixed{
+        &:before{
+            position: absolute;
+            z-index: 50;
+            top: pxTorem(20px);
+            right: pxTorem(4px);
+            @extend .m-fonts;
+            @extend .font-close;
+            font-size: pxTorem(44px);
+            color: #ddd !important;
+        }
+    }
+}

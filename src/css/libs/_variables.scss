@@ -1,0 +1,47 @@
+/*
+ * =========================================================
+ * @ filename : _variables.scss
+ * @ explains : global variables
+ *
+ * @ email    : f2engineer@outlook.com
+ * @ author   : Pom
+ * ==========================================================
+ */
+
+// 默认字号
+$browser-default-font-size : 16px;
+
+// 是否小于ie7
+$lte7 : false;
+
+// 默认颜色
+// -------------------------
+$bgcolor:		        #eee;
+$textColor:             #bbb;
+$fontColor:             #359df4;
+
+// 常用灰色字体
+// -------------------------
+$black:                 #000;
+$grayDarker:            #222;
+$grayDark:              #333;
+$gray:                  #666;
+$grayLight:             #999;
+$grayLighter:           #eee;
+$white:                 #fff;
+
+// 排版字体
+// -------------------------
+$numFontFamily:         Helvetica;
+$sansFontFamily:        tahoma, Arial, sans-serif;
+$serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+$monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
+$msyhFontFamily:        "\5FAE\8F6F\96C5\9ED1";	// yahei
+$SimSunFontFamily:      SimSun;
+$SimHeiFontFamily:      SimHei;
+
+
+// 页面中px转换为rem 设置图为640， 设计设备为320，因此值都是除以2的
+html{
+    font-size: $browser-default-font-size;
+}

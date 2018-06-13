@@ -1,0 +1,10 @@
+.log
+.cache
+.DS_Store
+.idea
+.gitkeep
+dist
+build
+node_modules
+/deploy.bat
+/deploy.sh

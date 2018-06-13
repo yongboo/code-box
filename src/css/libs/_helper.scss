@@ -1,0 +1,57 @@
+/*
+ * =========================================================
+ * @ filename : _helper.scss
+ * @ explains : coustom mixin, include some function
+ *
+ * @ email    : f2engineer@outlook.com
+ * @ author   : Pom
+ * ==========================================================
+ */
+
+// 去除单位
+@function strip-units($number){
+    @return $number / ($number * 0 + 1);
+}
+
+// px单位转换rem
+@function pxTorem($px){
+    @return ($px / $browser-default-font-size) / 2 * 1rem;
+}
+
+// 字体单位转换rem, 转换时小于12px,则默认为12px
+@function fontTorem($px){
+    $value: '';
+    @if $px / 2 <= 12 {
+        $value: 12px;
+    } @else {
+        $value: ($px / $browser-default-font-size) / 2 * 1rem;
+    }
+    @return $value;
+}
+// 多值px单位转换为rem
+@mixin remCalc($property, $values...) {
+    $max: length($values);//返回$values列表的长度值
+    // $pxValues: '';
+    $remValues: '';
+    $basefont: strip-units($browser-default-font-size);
+
+    @for $i from 1 through $max {
+    $value: strip-units(nth($values, $i));
+    $remValues: #{$remValues + ($value/2)/$basefont}rem;    // 除2，是因设计图750px
+
+        @if $i < $max {
+            $remValues: #{$remValues + " "};
+        }
+    }
+
+    // #{$property}: $pxValues;
+    #{$property}: $remValues;
+}
+
+// 多行截取文字
+@mixin mLine-overflow($lineNum: 2){
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lineNum;
+    overflow: hidden;
+}

@@ -1,0 +1,84 @@
+/*
+ * =========================================================
+ * @ filename : font-face.scss
+ * @ explains : custom font-face
+ *
+ * @ email    : f2engineer@outlook.com
+ * @ author   : Pom
+ * ==========================================================
+ */
+
+$fontPath: "/static/fonts";
+
+// ie eot, Modern Browsers woff, safari Andriod iOS truetype, Legacy iOS svg
+// @include font-face("m-fonts", font-files("#{$fontPath}m-fonts.eot?a612tj#iefix", "#{$fontPath}m-fonts.woff?a612tj", "#{$fontPath}m-fonts.ttf?a612tj", "#{$fontPath}m-fonts.svg?a612tj#m-fonts"));
+// @include font-face("m-fonts", font-files("#{$fontPath}/m-fonts.ttf", "truetype"));
+// @font-face {
+//     font-weight: normal;
+//     font-style: normal;
+// }
+@font-face {
+	font-family: 'm-fonts';
+	// src:url('#{$fontPath}/m-fonts.eot?a612tj');
+	src: //url('#{$fontPath}/m-fonts.eot?a612tj#iefix') format('embedded-opentype'),
+		url('#{$fontPath}/m-fonts.ttf?a612tj') format('truetype');
+		// url('#{$fontPath}/m-fonts.woff?a612tj') format('woff'),
+		// url('#{$fontPath}/m-fonts.svg?a612tj#m-fonts') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.m-fonts{
+    font-family: "m-fonts";
+    color:#fff;
+    vertical-align: middle;
+    font-weight: normal;
+    font-style: normal;
+    speak:none;
+    font-variant:normal;
+    text-transform:none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+.font-download:after {
+  content: "\8f7d";
+}
+.font-guys:before {
+  content: "\4f19";
+}
+.font-home:before {
+  content: "\9996";
+}
+.font-logo:before {
+  content: "\7f8e";
+}
+.font-user:before {
+  content: "\7528";
+}
+.font-icon:before {
+  content: "\5f55";
+}
+.font-money:before {
+  content: "\94b1";
+}
+.font-people:before {
+  content: "\4eba";
+}
+.font-arrow-top:before {
+  content: "\4e0a";
+}
+.font-close:before {
+  content: "\5173";
+}
+.font-minus:before {
+  content: "\51cf";
+}
+.font-add:before {
+  content: "\52a0";
+}
+.font-back:before {
+  content: "\8fd4";
+}
