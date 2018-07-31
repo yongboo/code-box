@@ -1,5 +1,6 @@
-# my-wheels
-## 平时积攒的wheels
+## my wheels
+
+### 平时积攒的wheels
 
 1. 本项目使用parcel进行打包、本地部署，请确定本地已经全局安装了parcel
 ```bash
