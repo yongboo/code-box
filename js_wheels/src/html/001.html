@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="telephone=no" name="format-detection" />
+  
+  <script>
+    void
+    function () {
+      var doc = document
+      var docEle = doc.documentElement
+
+      function setRootFontSize(width) {
+        width = width || docEle.getBoundingClientRect().width
+        docEle.style.fontSize = width / 375 * 16 + 'px'
+      }
+
+      if (/Mobi|mljr/.test(navigator.userAgent)) {
+        void
+        function () {
+          var timer
+
+          setRootFontSize()
+          window.addEventListener('resize', function () {
+            clearTimeout(timer)
+            timer = setTimeout(setRootFontSize, 300)
+          }, false)
+        }()
+      } else {
+        void
+        function () {
+          var pcWidth = 750
+          var style = doc.createElement('style')
+
+          style.innerHTML = 'body{width:' + pcWidth + 'px!important;margin:0 auto!important}'
+          doc.getElementsByTagName('head')[0].appendChild(style)
+          setRootFontSize(pcWidth)
+        }()
+      }
+
+      //设置动态viewport 解决1px问题
+      //        var viewportDom = document.getElementsByName('viewport')[0]
+      //        if(window.devicePixelRatio){
+      //            if(window.devicePixelRatio == 2){
+      //                viewportDom.setAttribute('content', 'width=device-width,initial-scale=0.5,maximum-scale=0.5,minimum-scale=0.5,user-scalable=no')
+      //            }
+      //            if(window.devicePixelRatio == 3){
+      //                viewportDom.setAttribute('content', 'width=device-width,initial-scale=0.3333333333333333,maximum-scale=0.3333333333333333,minimum-scale=0.3333333333333333,user-scalable=no')
+      //            }
+      //
+      //        }
+    }()
+  </script>
+</head>
+  <body>
+    根据不同屏幕宽度动态设置html标签上的font-size值
+    <script src='../js/001.js'></script>
+  </body>
+</html>

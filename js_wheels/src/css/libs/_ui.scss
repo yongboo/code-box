@@ -1,0 +1,60 @@
+/*
+ * =========================================================
+ * @ filename : ui.scss
+ * @ explains : 业务逻辑页面常用的样式
+ *
+ * @ email    : f2engineer@outlook.com
+ * @ author   : Pom
+ * ==========================================================
+ */
+
+ .bgc{
+     background-color: #f6f6f6;
+ }
+ .bgc-blue{
+     background-color: #f1f8ff;
+ }
+ .phone .js-hide-for-app{
+     display: none;
+ }
+ .orange-color{
+   color: #F39B3B!important;
+ }
+.body-gray{
+  background-color: #f6f6f6;
+}
+ // 数字字体
+ .num-suffix{
+     font-family: tahoma, Arial, sans-serif;
+ }
+
+ .pc-wrap{
+     mix-width: pxTorem(320px);
+     max-width: pxTorem(750px);
+     margin: 0 auto;
+ }
+
+// preloading
+.preloading{
+    width: pxTorem(90px);
+    height: pxTorem(90px);
+    position: relative;
+    margin: pxTorem(200px) auto;
+    .loading-bounce1, .loading-bounce2 {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background-color: #000;
+        opacity: 0.6;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-animation: loadingBounce 2.0s infinite ease-in-out;
+        animation: loadingBounce 2.0s infinite ease-in-out;
+    }
+
+    .loading-bounce2 {
+        -webkit-animation-delay: -1.0s;
+        animation-delay: -1.0s;
+    }
+}

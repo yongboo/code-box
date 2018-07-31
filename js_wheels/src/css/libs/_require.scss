@@ -1,0 +1,107 @@
+// 引入公共文件
+
+// compass 常用方法引入
+@import "compass/compass";
+@import "compass/compass/reset";
+
+// 自定义的一些方法
+@import "variables";
+@import "helper";
+@import "flex";
+@import "keyframe";
+@import "animate";
+@import "mod";
+@import "ui";
+
+@import "fontFace";
+
+a, button, input, textarea, select{
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+}
+a{
+    text-decoration: none;
+}
+.yuan{
+  text-decoration: none;
+}
+
+button{
+  text-align: center;
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+  text-align: center;
+}
+.btn-green{
+  color: #fff;
+  background-color: #5bcc7c;
+
+}
+.btn-blue{
+  color: #fff;
+  background-color: #359df5;
+}
+.btn-small{
+  font-size: pxTorem(16px);
+  width: pxTorem(120px);
+  height: pxTorem(36px);
+  line-height: pxTorem(32px);
+}
+
+.btn-big{
+  height: pxTorem(88px);
+  line-height: pxTorem(88px);
+  font-size: pxTorem(26px);
+}
+
+//一些信息提示的样式
+.erro-infos, .not-infos, .loading-infos{
+  text-align: center;
+  font-size: pxTorem(16px);
+  margin-top: pxTorem(100px);
+  color: #888;
+}
+
+@mixin activity-btn{
+  height: pxTorem(90px);
+  line-height: pxTorem(84px);
+  background-color: #d95443;
+  color: #fff;
+  @include border-radius(5px);
+  font-size: pxTorem(34px);
+  font-weight: bold;
+  display: block;
+  width: 100%;
+}
+
+//header中的样式 临时
+#header {
+  font-size: 16px;
+  height: 45px;
+  background: #359df5;
+  color: #fff;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  min-width: 320px;
+}
+.backto {
+  display: block;
+  height: 20px;
+  line-height: 20px;
+  color: #fff;
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  margin-top: -10px;
+  text-decoration: none;
+}
+#header .title-sub {
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  font-size: 20px;
+}
+
+//header中的样式 临时
