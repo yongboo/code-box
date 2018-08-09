@@ -13,12 +13,27 @@
   </div>
 </body>
 <script>
-  var vm = new Vue({
+  let vm = new Vue({
     el: '#app',
     data: {
       price: 100
     }
 
   })
+
+  // vue 源码中 render 函数
+  function render() {
+    with(this) {
+      return _c(
+        'div',
+        {
+          attrs: {'id': 'app'}
+        },
+        [
+          _c('p', [_v(_s(price))])
+        ]
+      )
+    }
+  }
 </script>
 </html>
