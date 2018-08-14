@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>数组相关</title>
+</head>
+<body>
+  <div>数组</div>
+  <div>8.1 扩展运算符</div>
+  <script>
+  // 8.1扩展运算符
+
+  // 数组去重
+  console.log([...(new Set([1, 3, 3, 4, 5]))])
+
+  // 类数组转换成数组 
+  // 类数组转换的其他方法还有 Array.from()、[].slice.call(arguments)
+  console.log([...document.querySelectorAll('div')])
+
+  // 用于函数调用
+  function add (...nums) {
+    console.log(nums.reduce((sum, num) => sum + num ))
+  }
+  add(2, 3, 4) // 累加
+
+
+  </script>
+</body>
+</html>
