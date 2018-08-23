@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>函数</div>
+  <script>
+    // 7.7 尾调用: 指某个函数的最后一步是调用另一个函数。
+    // 尾递归
+
+    function Fibonacci(n, ac1 = 1, ac2 = 1) {
+      if (n <= 1) {
+        return ac2
+      };
+      return Fibonacci(n-1, ac2, ac1 + ac2);
+    }
+    document.write(Fibonacci(10))
+
+  </script>
+</body>
+
+</html>
