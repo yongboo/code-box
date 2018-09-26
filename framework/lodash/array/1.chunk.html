@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>chunk</div>
+  <script>
+    let chunk = function (arr, size) {
+      if (!Array.isArray(arr)) return
+      let len = arr.length
+      let num = len/size
+      let result = []
+      let index = 0,
+          resultIndex = 0;
+
+      while (index < num) {
+        result[resultIndex++] = arr.slice(index, index += size)
+      }
+
+
+      // for (let i = 0; i <= num; i++) {
+      //   if ((i*num + size) > len) result = result.concat([arr.slice(i*num)])
+      //   result = result.concat([arr.slice(i*num, (i*num + size))])
+      // }
+      return result
+    }
+
+    let arr = [1, 2, 3, 4, 5]
+    console.log(chunk(arr, 2))
+  </script>
+</body>
+</html>
