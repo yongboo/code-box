@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>vue 响应式原理</div>
+<script>
+  function isObject(arg) {
+    return Object.prototype.toString.call(arg) === '[object Object]'
+  }
+
+  function observe(obj){
+    if(!isObject(obj)) {
+      throw('object is required!')
+      return
+    } 
+
+    Object.keys(obj).forEach(key => {
+      responsive(obj, key, obj[key])
+    })
+  }
+
+  function responsive(obj, key, val) {
+    Object.defineProperty(obj, key, {
+      enumerable: true,
+      configurable: true,
+      get: function(){
+        console.log('我被收集了  '+ key + ':' + val)
+        return val
+      },
+      set: function(newVal) {
+        if(newVal === val) return
+        console.log('我被修改了  ' + key)
+        // obj[key] = newVal
+      }
+    })
+  }
+
+  let obj = {
+    name: 'xiaoming',
+    age: 16
+  }
+
+  observe(obj)
+  console.log('obj age is: ' + obj.age)
+  obj.age = 20
+</script>
+</body>
+</html>
+
+
