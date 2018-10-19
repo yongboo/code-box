@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>闭包</div>
+  <script>
+    // for(var i = 1; i <= 5; i++) {
+    //   setTimeout(function timer(){
+    //     console.log(i)
+    //   }, 1000)
+    // }
+
+    // // 闭包解决
+    // for(var i = 1; i <= 5; i++) {
+    //   (function(j){
+    //     setTimeout(function timer(){
+    //       console.log(j)
+    //     }, 1000)
+    //   })(i)
+    // }
+
+    // let解决
+    // for(let i = 1; i <= 5; i++) {
+    //   setTimeout(function timer(){
+    //     console.log(i)
+    //   }, 1000)
+    // }
+
+    // setTimeout的第三个参数
+    for(let i = 1; i <= 5; i++) {
+      setTimeout(function timer(j){
+        console.log(j)
+      }, 1000, i)
+    }
+  </script>
+</body>
+</html>

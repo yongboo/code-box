@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>闭包的应用</div>
+  <script>
+    // 设置函数的私有属性
+    function module() {
+      let arr = []
+      function add(val) {
+        if (typeof val === 'number') {
+          arr.push(val)
+        }
+      }
+
+      function get(index) {
+        if (index < arr.length) {
+          return arr[index] 
+        } else {
+          return null
+        }
+      }
+
+      return {
+        add: add,
+        get: get
+      }
+    }
+
+    var mod1 = module();
+    mod1.add(1);
+    mod1.add(2);
+    mod1.add('xxx');
+    console.log(mod1.get(2));
+    
+  </script>
+</body>
+</html>
