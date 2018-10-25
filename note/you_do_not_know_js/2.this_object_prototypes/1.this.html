@@ -7,14 +7,24 @@
   <title>Document</title>
 </head>
 <body>
-  <div>作用域</div>
+  <div>this</div>
   <script>
-    
-    Promise.resolve([1, 2, 3])
-      .then((item) => {
-        console.log(item)
-      })
-  
+  function foo () {
+    console.log(this.name)
+  }
+
+  let a1 = {
+    name: 'zhangsan'
+  }
+
+  let a2 = {
+    name: 'lisi'
+  }
+
+  let b1  = foo.bind(a1)
+  b1() // zhangsan
+  let b2 = b1.bind(a2)
+  b2() // zhangsan
   </script>
 </body>
 </html>
