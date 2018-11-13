@@ -14,16 +14,12 @@ const eventLog = function( err , sqlFile, index ) {
 let sqlContentMap = getSqlContentMap()
 
 const createAllTables = async () => {
-    console.log('--------------------------------- \n')
     for (let sqlName in sqlContentMap) {
         let sqlRows = sqlContentMap[sqlName]
         sqlRows = sqlRows.split(';')
-        console.log('sqlRows is: ' + sqlRows)
         for (let [index, shell] of sqlRows.entries()) {
             if (shell.trim()) {
-                console.log('shell is ok')
                 let result = await query(shell)
-                console.log('result is: ', result)
                 if (result.serverStatus * 1 === 2) {
                     eventLog(null, sqlName, index)
                 } else {

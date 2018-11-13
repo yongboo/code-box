@@ -3,7 +3,6 @@ const walkFile = require('./walk-file')
 
 const getSqlMap = function() {
     let baseDir = __dirname
-    console.log('baseDir is: ', baseDir)
     baseDir = baseDir.replace('/\\/g', '\/')
 
     let baseArr = baseDir.split('\/')

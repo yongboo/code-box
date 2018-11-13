@@ -9,7 +9,6 @@ let getSqlContentMap = function() {
         let sqlContent = fs.readFileSync(sqlPath, 'binary')
         sqlContentMap[sqlName] = sqlContent
     }
-    console.log('sqlContentMap is: ', sqlContentMap)
     return sqlContentMap
 
 }
