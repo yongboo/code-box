@@ -37,7 +37,6 @@ const user = {
       },
 
       async getUserInfoByUserName( userName ) {
-
         let result = await dbUtils.select(
           'user_info',
           ['id', 'email', 'name', 'detail_info', 'create_time', 'modified_time', 'modified_time' ])

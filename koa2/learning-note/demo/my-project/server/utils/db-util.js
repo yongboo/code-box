@@ -39,8 +39,6 @@ let select = function(table, keys) {
     return query(_sql, [keys, table])
 }
 
-
-
 module.exports = {
     query,
     insertData,
