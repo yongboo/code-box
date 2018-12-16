@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <button id="app">click me</button>
+
+  </div>
+  <script>
+    var alarm = {
+    timeoutID: 0,
+    setup: function() {
+      clearTimeout(this.timeoutID)
+      this.timeoutID = window.setTimeout(function(msg) {
+      console.log(msg)
+      }, 1000, 'Wake up!'); 
+    }
+    };
+
+    document.getElementById('app').onclick = function() { alarm.setup(); };
+  </script>
+</body>
+</html>
