@@ -18,6 +18,11 @@
   * 不能解决循环引用的对象
 * lodash中的cloneDeep()
 
+## promise
+promise的问题：
+* 无法取消
+* 只能成功（resolve）或失败 error (regect)
+
 
 
 
