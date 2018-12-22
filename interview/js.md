@@ -19,9 +19,18 @@
 * lodash中的cloneDeep()
 
 ## promise
-promise的问题：
-* 无法取消
-* 只能成功（resolve）或失败 error (regect)
+### promise:
+ * 是一个状态机，pending, fulfilled, rejected
+ * 初始状态为pending 
+ * Promise 新建后就会立即执行
+ * then方法的回调函数执行视状态而定 （返回一个新的Promise对象）
+    * 状态为 fulfilled / rejected 就执行回调
+    * 状态为pending时 把回调函数放到一个异步队列中
+ * resolve/reject方法执行，遍历执行异步队列中的回调函数
+### promise的问题：
+* 首先，无法取消Promise，一旦新建它就会立即执行，无法中途取消。
+* 其次，如果不设置回调函数，Promise内部抛出的错误，不会反应到外部
+* 第三，当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。
 
 
 

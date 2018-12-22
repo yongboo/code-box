@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>promise 简单实现</div>
+  <script>
+    const PENDING = 'pending'
+    const RESOLVED = 'resolved'
+    const REJECTED = 'rejected'
+
+    function Promise(fn) {
+      const _this = this
+      _this.val = undefined
+      _this.currentState = PENDING
+      _this.resolvedCallbacks = []
+      _this.rejectedCallbacks = []
+
+      _this.resolve = function (val) {
+        _this.currentState = RESOLVED
+        _this.val = val
+        _this.resolvedCallbacks.forEach(cb => cb());
+      }
+
+      _this.reject = function (val) {
+        _this.currentState = REJECTED
+        _this.val = val
+        _this.rejectedCallbacks.forEach(cb => cb());
+
+      }
+      try {
+        fn(_this.resolve, _this.reject)
+      } catch (err) {
+        _this.reject(err)
+      }
+
+    }
+
+    Promise.prototype.then = (onResolved, onRejected) => {
+        let self = this
+        let promise2
+        onRejected = typeof onResolved === 'function' ? onResolved : r => r
+        onRejected = typeof onRejected === 'function' ? onRejected : r = throw r
+
+        if (self.currentState === RESOLVED) {
+          return (promise2 = new Promise((resolve, reject) => {
+            onResolved(self.val)
+          }))
+        }
+
+        if (self.currentState === REJECTED) {
+          // ...
+        }
+
+        if (self.currentState === PENDING) {
+          return (promise2 = new Promise((resolve, reject) => {
+              self.resolvedCallbacks.push(function () {
+                onResolved(self.val)
+              })
+
+              self.rejectedCallbacks.push(function () {
+                onRejected(self.val)
+              })
+            }))
+          }
+
+        }
+
+  </script>
+
+</body>
+
+</html>
