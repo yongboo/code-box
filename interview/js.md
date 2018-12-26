@@ -59,6 +59,22 @@
 
 ### JSONP
 JSONP 的原理很简单，就是利用 \<script\> 标签没有跨域限制的漏洞。通过 <script> 标签指向一个需要访问的地址并提供一个回调函数来接收数据当需要通讯时。
+* JSONP 使用简单且兼容性不错，但是只限于 get 请求。
+
+### CORS
+* CORS需要浏览器和后端同时支持。IE 8 和 9 需要通过 XDomainRequest 来实现。
+* 服务端设置 Access-Control-Allow-Origin 就可以开启 CORS。
+
+### document.domain
+该方式只能用于二级域名相同的情况下，比如 a.test.com 和 b.test.com 适用于该方式。
+
+### postMessage
+这种方式通常用于获取嵌入页面中的第三方页面数据。一个页面发送消息，另一个页面判断来源并接收消息
+
+
+## EventLoop
+
+
 
 
 
