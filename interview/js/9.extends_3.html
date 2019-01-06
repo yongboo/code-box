@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div>class 继承</div>
+    <script>
+        class Parent {
+            constructor(name) {
+                this.name = name
+            }
+
+            getName() {
+                return this.name
+            }
+        }
+
+        class Child extends Parent {
+            constructor(name, age) {
+                super(name)
+                this.age = age
+            }
+
+            getAge() {
+                return this.age
+            }
+        }
+
+        let p = new Parent('aaa')
+        console.log(p.getName())
+        let c = new Child('bbb', 12)
+        console.log(c.getAge())
+        console.log(Child.prototype.constructor.name)
+    </script>
+</body>
+</html>

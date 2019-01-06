@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>寄生组合继承</div>
+    <script>
+        function Parent(name) {
+            this.name = name
+            this.sayHello = function () {
+                console.log('say hello', this.name)
+            }
+        }
+        Parent.prototype.getName = function () {
+            return this.name
+        }
+
+        function Child(name, age){
+            Parent.call(this, name)
+            this.age = age
+        }
+
+        Child.prototype = Object.create(Parent.prototype, {
+            constructor: {
+                value: Child,
+                enumerable: false,
+                configurable: true,
+                writable: true
+            }
+        })
+        // Child.prototype.constructor = Child
+        Child.prototype.getAge = function () {
+            return this.age
+        }
+
+        let parent = new Parent('aaa')
+        let child = new Child('bbb', 12)
+        console.log(parent.getName())
+        console.log(child.getName())
+        console.log(child.getAge())
+        console.log(child.sayHello())
+
+        console.log(Parent.prototype.constructor.name)
+        console.log(Child.prototype.constructor.name)
+
+
+    </script>
+</body>
+</html>

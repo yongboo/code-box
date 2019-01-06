@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>组合式继承</div>
+    <script>
+        // 以上继承的方式核心是在子类的构造函数中通过 Parent.call(this) 继承父类的属性，然后改变子类的原型为 new Parent() 来继承父类的函数。
+        // 问题：子类的原型上挂载了不必要的父类的私有属性，增加内存开销
+
+        // Q: Child.prototype = new Parent(), 这里new Parent()为什么没传参
+        // A: 这样会把父类的属性值绑死在Child.prototype上，导致子类的所有对象都会绑死这个属性值
+
+        // Q: Child.prototype = new Parent() 这里为什么绑定父类的对象，而不是Parent.prototype
+        // A: 这样导致Child.prototype 和 Parent.prototype都指向同一个对象，
+        //    修改Child.prototype.constructor时也会修改Parent.prototype.constructor的指向
+
+
+
+        function Parent(name) {
+            this.name = name
+        }
+        Parent.prototype.getName = function () {
+            return this.name
+        }
+
+        function Child(name, age){
+            Parent.call(this, name)
+            this.age = age
+        }
+
+        Child.prototype = new Parent()
+        Child.prototype.constructor = Child
+        Child.prototype.getAge = function () {
+            return this.age
+        }
+
+        let parent = new Parent('aaa')
+        let child = new Child('bbb', 12)
+        console.log(parent.getName())
+        console.log(child.getName())
+        console.log(child.getAge())
+
+        console.log(Parent.prototype.constructor.name)
+        console.log(Child.prototype.constructor.name)
+
+
+    </script>
+    
+</body>
+</html>
