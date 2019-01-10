@@ -17,9 +17,10 @@
 
     function Promise(fn) {
       const _this = this
-      _this.val = undefined
+      _this.val = undefined // value 变量用于保存 resolve 或者 reject 中传入的值
       _this.currentState = PENDING
-      _this.resolvedCallbacks = []
+      _this.resolvedCallbacks = [] // resolvedCallbacks 和 rejectedCallbacks 用于保存 then 中的回调，
+                                  //因为当执行完 Promise 时状态可能还是等待中，这时候应该把 then 中的回调保存起来用于状态改变时使用
       _this.rejectedCallbacks = []
 
       _this.resolve = function (val) {
@@ -60,13 +61,9 @@
 
         if (self.currentState === PENDING) {
           return (promise2 = new Promise((resolve, reject) => {
-              self.resolvedCallbacks.push(function () {
-                onResolved(self.val)
-              })
+              self.resolvedCallbacks.push(onResolved)
 
-              self.rejectedCallbacks.push(function () {
-                onRejected(self.val)
-              })
+              self.rejectedCallbacks.push(onRejected)
             }))
           }
 
