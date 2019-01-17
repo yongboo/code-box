@@ -30,6 +30,17 @@
         // getValue.apply(a, ['yck', '24'])
 
 
+        // 如果context是数组如何处理
+        console.log('///////////////////////')
+        let arr1 = []
+        function myArrTest(name) {
+            this.name = name
+        }
+        myArrTest.call(arr1, 'shangyongbo')
+        console.log(arr1)
+        
+
+
     </script>
 </body>
 </html>
