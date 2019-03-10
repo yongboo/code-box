@@ -23,9 +23,13 @@
       })
       return promise
     }
-
+  
+    // console.log('asyncFun type is: ', typeof asyncFun())
+    // console.log(asyncFun() instanceof Promise)
   asyncFun('hello').then((result) => {
     console.log(result)
+    // return '123'
+    // return asyncFun('')
   }).then((result2) => {
      console.log(result2)
   }).catch((err) => {
