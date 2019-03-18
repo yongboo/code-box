@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>write a promise</div>
+    <script>
+    function Promise (fn) {
+        let _this = this
+        _this.currentState = 'pending'
+        _this.val = undefined
+
+        _this.resolvedCbs = []
+        _this.rejectedCbs = []
+
+        _this.resolve = function(val) {
+            _this.currentState = 'resolved'
+            _this.val = val
+            _this.resolvedCbs.forEach(cb => cb())
+        }
+
+        _this.reject =function(val) {
+            _this.currentState = 'rejected'
+            _this.val = val
+            _this.rejectedCbs.forEach(cb => cb())
+
+        }
+
+        try {
+            fn(_this.resolve, _this.reject)
+        } catch (err) {
+            _this.reject(err)
+        }
+    }
+
+    Promise.prototype.then = function(resolvedHandle, rejectedHandle) {
+        let self = this
+        if (self.currentState = 'resolved') {
+            return (new Promise((resolve, reject) => {
+                resolvedHandle(self.val)
+            }))
+        }
+
+        if (self.currentState = 'pending') {
+            return (new Promise((resolve, reject) => {
+                self.resolvedCbs.push(resolvedHandle)
+                self.rejectedCbs.push(rejectedHandle)
+            }))
+        }
+
+    }
+    </script>
+</body>
+</html>
